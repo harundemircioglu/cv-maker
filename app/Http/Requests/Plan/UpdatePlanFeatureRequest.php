@@ -22,7 +22,10 @@ class UpdatePlanFeatureRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'key' => ['required', 'string'],
+            'value' => ['required', 'string'],
+            'plan_ids' => ['required', 'array'],
+            'plan_ids.*' => ['required', 'exists:plans,id'],
         ];
     }
 

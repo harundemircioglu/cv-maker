@@ -32,7 +32,18 @@ class PlanFeatureController extends Controller
      */
     public function store(StorePlanFeatureRequest $request)
     {
-        //
+        $planIds = $request->plan_ids;
+
+        foreach ($planIds as $planId) {
+            PlanFeature::create([
+                'plan_id' => $planId,
+                'key' => $request->key,
+                'key_slug' => makeSlug($request->key),
+                'value' => $request->value,
+            ]);
+        }
+
+        return back()->with(['success' => 'Success']);
     }
 
     /**
@@ -56,7 +67,18 @@ class PlanFeatureController extends Controller
      */
     public function update(UpdatePlanFeatureRequest $request, string $id)
     {
-        //
+        $planIds = $request->plan_ids;
+
+        foreach ($planIds as $planId) {
+            PlanFeature::update([
+                'plan_id' => $planId,
+                'key' => $request->key,
+                'key_slug' => makeSlug($request->key),
+                'value' => $request->value,
+            ]);
+        }
+
+        return back()->with(['success' => 'Success']);
     }
 
     /**
@@ -64,6 +86,14 @@ class PlanFeatureController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $planFeature = PlanFeature::find($id);
+
+        if (!$planFeature) {
+            return back()->with(['error' => 'Error']);
+        }
+
+        $planFeature->delete();
+
+        return back()->with(['success' => 'Success']);
     }
 }
