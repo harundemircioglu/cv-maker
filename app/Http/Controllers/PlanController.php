@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Plan\StorePlanRequest;
 use App\Http\Requests\Plan\UpdatePlanRequest;
+use App\Models\Plan;
 use Illuminate\Http\Request;
 
 class PlanController extends Controller
@@ -13,7 +14,9 @@ class PlanController extends Controller
      */
     public function index()
     {
-        //
+        $plans = Plan::where('status', 1)->get();
+
+        return view('plan.index', compact('plans'));
     }
 
     /**

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Plan\StorePlanFeatureRequest;
 use App\Http\Requests\Plan\UpdatePlanFeatureRequest;
+use App\Models\PlanFeature;
 use Illuminate\Http\Request;
 
 class PlanFeatureController extends Controller
@@ -13,7 +14,9 @@ class PlanFeatureController extends Controller
      */
     public function index()
     {
-        //
+        $planFeatures = PlanFeature::where('status', 1)->with(['plan'])->get();
+
+        return view('plan.planFeature.index', compact('planFeatures'));
     }
 
     /**
