@@ -45,4 +45,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function plan()
+    {
+        return $this->hasOne(UserPlan::class, 'user_id', 'id');
+    }
 }
