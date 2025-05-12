@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Plan extends Model
 {
-    // plan_type => 1:Super, 2:Premium, 3:Free
+    // plan_type => 1:Premium, 2:Free
 
     public function features()
     {

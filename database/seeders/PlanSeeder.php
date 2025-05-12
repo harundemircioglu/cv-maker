@@ -14,20 +14,13 @@ class PlanSeeder extends Seeder
     public function run(): void
     {
         Plan::firstOrCreate(['plan_type' => 1], [
-            'name' => 'Super',
-            'description' => 'Super',
-            'monthly_cost' => '100',
-            'yearly_cost' => '1000',
-        ]);
-
-        Plan::firstOrCreate(['plan_type' => 2], [
             'name' => 'Premium',
             'description' => 'Premium',
             'monthly_cost' => '50',
             'yearly_cost' => '500',
         ]);
 
-        Plan::firstOrCreate(['plan_type' => 3], [
+        Plan::firstOrCreate(['plan_type' => 2], [
             'name' => 'Free',
             'description' => 'Free',
         ]);
