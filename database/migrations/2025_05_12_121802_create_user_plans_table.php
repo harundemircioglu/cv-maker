@@ -22,6 +22,7 @@ return new class extends Migration {
                 ->constrained('plans')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
+            $table->enum('payment_type', [1, 2])->default(1)->nullable();
             $table->dateTime('start_date')->nullable();
             $table->dateTime('end_date')->nullable();
             $table->tinyInteger('status')->default(1)->nullable();

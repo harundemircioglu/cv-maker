@@ -13,6 +13,10 @@ class UserPlanSeeder extends Seeder
      */
     public function run(): void
     {
-        UserPlan::firstOrCreate(['user_id' => 3, 'plan_id' => 2], []);
+        UserPlan::firstOrCreate(['user_id' => 3, 'plan_id' => 2], [
+            'payment_type' => 2,
+            'start_date' => now(),
+            'end_date' => now()->addYear(),
+        ]);
     }
 }
