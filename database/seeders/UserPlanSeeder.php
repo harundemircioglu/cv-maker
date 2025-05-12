@@ -13,10 +13,6 @@ class UserPlanSeeder extends Seeder
      */
     public function run(): void
     {
-        UserPlan::firstOrCreate(['user_id' => 1, 'plan_id' => 1], []);
-
-        UserPlan::firstOrCreate(['user_id' => 2, 'plan_id' => 2], []);
-
         UserPlan::firstOrCreate(['user_id' => 3, 'plan_id' => 3], []);
     }
 }
