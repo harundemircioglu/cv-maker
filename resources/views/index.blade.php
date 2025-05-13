@@ -2,10 +2,16 @@
 
 @section('content')
     @auth
+        <h3>{{ auth()->user()->name }}</h3>
+
         <form id="formLogout" action="{{ route('auth.logout') }}" method="POST">
             @csrf
             <button id="btnLogout">Logout</button>
         </form>
+
+        @if (auth()->user()->hasRole('super-admin') || auth()->user()->hasRole('admin'))
+            <a href="{{ route('plan.index') }}">Plans</a>
+        @endif
     @endauth
 @endsection
 
