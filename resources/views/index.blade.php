@@ -8,10 +8,6 @@
             @csrf
             <button id="btnLogout">Logout</button>
         </form>
-
-        @if (auth()->user()->hasRole('super-admin') || auth()->user()->hasRole('admin'))
-            <a href="{{ route('plan.index') }}">Plans</a>
-        @endif
     @endauth
 @endsection
 
