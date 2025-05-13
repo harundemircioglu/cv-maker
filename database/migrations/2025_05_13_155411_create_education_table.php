@@ -10,21 +10,19 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('user_plans', function (Blueprint $table) {
+        Schema::create('education', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')
+            $table->foreignId('resume_id')
                 ->nullable()
-                ->constrained('users')
+                ->constrained('resumes')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-            $table->foreignId('plan_id')
-                ->nullable()
-                ->constrained('plans')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
-            $table->enum('payment_term', [1, 2])->default(1)->nullable();
-            $table->dateTime('start_date')->nullable();
-            $table->dateTime('end_date')->nullable();
+            $table->string('study_program')->nullable();
+            $table->string('place_of_education')->nullable();
+            $table->boolean('is_present')->default(false)->nullable();
+            $table->date('start_date')->nullable();
+            $table->date('end_date')->nullable();
+            $table->json('projects')->nullable();
             $table->tinyInteger('status')->default(1)->nullable();
             $table->timestamps();
         });
@@ -35,6 +33,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('user_plans');
+        Schema::dropIfExists('education');
     }
 };

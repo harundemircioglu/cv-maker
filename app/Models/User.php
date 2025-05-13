@@ -47,4 +47,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(UserPlan::class, 'user_id', 'id');
     }
+
+    public function resumes()
+    {
+        return $this->hasMany(Resume::class, 'user_id', 'id');
+    }
 }
