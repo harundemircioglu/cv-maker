@@ -17,9 +17,13 @@ return new class extends Migration {
                 ->constrained('plans')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-            $table->string('key')->nullable();
-            $table->string('key_slug')->nullable();
-            $table->string('value')->nullable();
+            $table->integer('max_cv_downloads')->default(2)->nullable();
+            $table->integer('max_work_experiences')->default(2)->nullable();
+            $table->integer('max_educations')->default(2)->nullable();
+            $table->integer('max_certificates')->default(2)->nullable();
+            $table->integer('max_languages')->default(2)->nullable();
+            $table->integer('max_references')->default(2)->nullable();
+            $table->integer('max_projects')->default(2)->nullable();
             $table->tinyInteger('status')->default(1)->nullable();
             $table->timestamps();
         });

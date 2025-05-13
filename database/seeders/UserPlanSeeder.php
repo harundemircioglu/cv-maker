@@ -2,7 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\UserPlan;
+use App\Models\Plan;
+use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -13,8 +14,13 @@ class UserPlanSeeder extends Seeder
      */
     public function run(): void
     {
-        UserPlan::firstOrCreate(['user_id' => 3, 'plan_id' => 2], [
-            'payment_type' => 2,
+        $user = User::where('email', 'superadmin@mail.com')->first();
+
+        $plan = Plan::where('plan_type', 1)->first();
+
+        $user->plan()->firstOrCreate([
+            'plan_id' => $plan->id,
+            'payment_term' => 2,
             'start_date' => now(),
             'end_date' => now()->addYear(),
         ]);

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class UserPlan extends Model
 {
-    // payment_type => 1:monthly, 2:yearly
+    // payment_temr => 1:monthly, 2:yearly
 
     protected $guarded = [];
 
