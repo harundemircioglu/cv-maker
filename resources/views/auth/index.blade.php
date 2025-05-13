@@ -24,6 +24,17 @@
         <input class="@error('email') is-invalid @enderror" type="email" name="email">
         <input class="@error('password') is-invalid @enderror" type="password" name="password">
         <input class="@error('password_confirmation') is-invalid @enderror" type="password" name="password_confirmation">
+        <select name="plan_id">
+            <option selected disabled>Plan</option>
+            @foreach ($plans as $plan)
+                <option value="{{ $plan->id }}">{{ $plan->name }}</option>
+            @endforeach
+        </select>
+        <select name="payment_type">
+            <option selected disabled>Payment Type</option>
+            <option value="1">Monthly</option>
+            <option value="2">Yearly</option>
+        </select>
         <button id="btnRegister">Register</button>
     </form>
 @endsection

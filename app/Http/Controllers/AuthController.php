@@ -60,6 +60,8 @@ class AuthController extends Controller
             'end_date' => $request->payment_type == 1 ? now()->addMonth() : now()->addYear(),
         ]);
 
+        auth()->login($user);
+
         return redirect()->route('home')->with(['success' => 'Success']);
     }
 

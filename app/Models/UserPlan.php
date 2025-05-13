@@ -8,6 +8,8 @@ class UserPlan extends Model
 {
     // payment_type => 1:monthly, 2:yearly
 
+    protected $guarded = [];
+
     public function plan()
     {
         return $this->belongsTo(Plan::class, 'plan_id', 'id');

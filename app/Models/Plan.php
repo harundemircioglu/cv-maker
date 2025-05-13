@@ -8,6 +8,8 @@ class Plan extends Model
 {
     // plan_type => 1:Premium, 2:Free
 
+    protected $guarded = [];
+
     public function features()
     {
         return $this->hasMany(PlanFeature::class, 'plan_id', 'id');
