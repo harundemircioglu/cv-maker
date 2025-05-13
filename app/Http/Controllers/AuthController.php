@@ -14,7 +14,7 @@ class AuthController extends Controller
 {
     public function index()
     {
-        $plans = Plan::where('status', 1)->with(['features'])->get();
+        $plans = Plan::where('status', 1)->get();
 
         return view('auth.index', compact('plans'));
     }
