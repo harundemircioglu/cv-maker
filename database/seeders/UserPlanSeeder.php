@@ -14,7 +14,7 @@ class UserPlanSeeder extends Seeder
      */
     public function run(): void
     {
-        $user = User::where('email', 'superadmin@mail.com')->first();
+        $user = User::where('email', 'guest@mail.com')->first();
 
         $plan = Plan::where('plan_type', 1)->first();
 
