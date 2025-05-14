@@ -17,8 +17,13 @@ return new class extends Migration {
                 ->constrained('users')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
+            $table->string('title')->nullable();
             $table->string('name')->nullable();
-            $table->boolean('is_downloaded')->default(false)->nullable();
+            $table->string('surname')->nullable();
+            $table->string('email')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('city')->nullable();
+            $table->text('description')->nullable();
             $table->tinyInteger('status')->default(1)->nullable();
             $table->timestamps();
         });
