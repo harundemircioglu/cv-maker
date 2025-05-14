@@ -16,8 +16,8 @@ class PlanSeeder extends Seeder
         $premium = Plan::firstOrCreate(['plan_type' => 1], [
             'name' => 'Premium',
             'description' => 'Premium',
-            'monthly_cost' => '50',
-            'yearly_cost' => '500',
+            'monthly_cost' => 50,
+            'yearly_cost' => 500,
         ]);
 
         $premium->features()->firstOrCreate([

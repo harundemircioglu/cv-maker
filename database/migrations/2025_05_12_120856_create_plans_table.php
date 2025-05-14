@@ -15,8 +15,8 @@ return new class extends Migration {
             $table->string('name')->nullable();
             $table->text('description')->nullable();
             $table->enum('plan_type', [1, 2])->default(1)->nullable();
-            $table->string('monthly_cost')->default('0')->nullable();
-            $table->string('yearly_cost')->default('0')->nullable();
+            $table->decimal('monthly_cost', 8, 2)->default('0')->nullable();
+            $table->decimal('yearly_cost', 8, 2)->default('0')->nullable();
             $table->tinyInteger('status')->default(1)->nullable();
             $table->timestamps();
         });
