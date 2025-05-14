@@ -22,7 +22,14 @@ class StoreWorkExperienceRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'title' => ['required', 'string', 'max:255'],
+            'workplace' => ['required', 'string', 'max:255'],
+            'is_present' => ['required', 'integer', 'in:0,1'],
+            'start_date' => ['required', 'date', 'date_format:m/Y'],
+            'end_date' => ['required_if:is_present,1', 'date', 'date_format:m/Y'],
+            'city' => ['required', 'string', 'max:255'],
+            'tasks' => ['required', 'array'],
+            'tasks.*' => ['required', 'string', 'max:255'],
         ];
     }
 

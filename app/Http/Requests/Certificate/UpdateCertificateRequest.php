@@ -22,7 +22,11 @@ class UpdateCertificateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => ['required', 'string', 'max:255'],
+            'is_present' => ['required', 'integer', 'in:0,1'],
+            'start_date' => ['required', 'date', 'date_format:m/Y'],
+            'end_date' => ['required_if:is_present,1', 'date', 'date_format:m/Y'],
+            'description' => ['required', 'string', 'max:255'],
         ];
     }
 

@@ -22,7 +22,13 @@ class UpdateEducationRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'study_program' => ['required', 'string', 'max:255'],
+            'place_of_education' => ['required', 'string', 'max:255'],
+            'is_present' => ['required', 'integer', 'in:0,1'],
+            'start_date' => ['required', 'date', 'date_format:m/Y'],
+            'end_date' => ['required_if:is_present,1', 'date', 'date_format:m/Y'],
+            'projects' => ['required', 'array'],
+            'projects.*' => ['required', 'string'],
         ];
     }
 

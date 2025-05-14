@@ -22,7 +22,8 @@ class StoreLanguageRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'language' => ['required', 'string', 'max:255'],
+            'level' => ['required', 'string', 'max:255'],
         ];
     }
 
