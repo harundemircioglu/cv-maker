@@ -24,5 +24,7 @@ class UserPlanSeeder extends Seeder
             'start_date' => now(),
             'end_date' => now()->addYear(),
         ]);
+
+        $user->planUsages()->firstOrCreate();
     }
 }

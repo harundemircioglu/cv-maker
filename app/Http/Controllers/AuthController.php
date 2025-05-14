@@ -55,10 +55,12 @@ class AuthController extends Controller
 
         $user->plan()->create([
             'plan_id' => $request->plan_id,
-            'payment_type' => $request->payment_type,
+            'payment_term' => $request->payment_term,
             'start_date' => now(),
-            'end_date' => $request->payment_type == 1 ? now()->addMonth() : now()->addYear(),
+            'end_date' => $request->payment_term == 1 ? now()->addMonth() : now()->addYear(),
         ]);
+
+        $user->planUsages()->create();
 
         auth()->login($user);
 

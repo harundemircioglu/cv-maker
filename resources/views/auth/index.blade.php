@@ -30,8 +30,8 @@
                 <option value="{{ $plan->id }}">{{ $plan->name }}</option>
             @endforeach
         </select>
-        <select name="payment_type">
-            <option selected disabled>Payment Type</option>
+        <select name="payment_term">
+            <option selected disabled>Payment Term</option>
             <option value="1">Monthly</option>
             <option value="2">Yearly</option>
         </select>

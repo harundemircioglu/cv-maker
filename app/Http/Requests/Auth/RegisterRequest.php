@@ -18,7 +18,7 @@ class RegisterRequest extends FormRequest
             'email' => ['required', 'email', 'unique:users,email'],
             'password' => ['required', 'min:8', 'confirmed'],
             'plan_id' => ['required', 'exists:plans,id'],
-            'payment_type' => ['required', 'integer', 'in:1,2'],
+            'payment_term' => ['required', 'integer', 'in:1,2'],
         ];
     }
 
