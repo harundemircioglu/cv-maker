@@ -6,6 +6,7 @@ use App\Http\Requests\Project\StoreProjectRequest;
 use App\Http\Requests\Project\UpdateProjectRequest;
 use App\Models\Project;
 use App\Models\Resume;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -16,7 +17,11 @@ class ProjectController extends Controller
         try {
             DB::transaction(function () use ($request, $resumeId) {
                 $resume = Resume::findOrFail($resumeId);
-                $resume->projects()->create($request->validated());
+                $data = $request->validated();
+                $data['resume_id'] = $resume->id;
+                $data['start_date'] = Carbon::parse($data['start_date'])->format('Y-m-d');
+                $data['end_date'] = Carbon::parse($data['end_date'])->format('Y-m-d');
+                $resume->projects()->create($data);
             });
 
             return back()->with("success", "Success");
@@ -30,7 +35,10 @@ class ProjectController extends Controller
         try {
             DB::transaction(function () use ($request, $id) {
                 $project = Project::findOrFail($id);
-                $project->update($request->validated());
+                $data = $request->validated();
+                $data['start_date'] = Carbon::parse($data['start_date'])->format('Y-m-d');
+                $data['end_date'] = Carbon::parse($data['end_date'])->format('Y-m-d');
+                $project->update($data);
             });
 
             return back()->with("success", "Success");

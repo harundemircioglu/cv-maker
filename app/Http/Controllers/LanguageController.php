@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\Education\StoreLanguageRequest;
-use App\Http\Requests\Education\UpdateLanguageRequest;
+use App\Http\Requests\Language\StoreLanguageRequest;
+use App\Http\Requests\Language\UpdateLanguageRequest;
 use App\Models\Language;
 use App\Models\Resume;
 use Illuminate\Http\Request;
@@ -16,7 +16,9 @@ class LanguageController extends Controller
         try {
             DB::transaction(function () use ($request, $resumeId) {
                 $resume = Resume::findOrFail($resumeId);
-                $resume->languages()->create($request->validated());
+                $data = $request->validated();
+                $data['resume_id'] = $resume->id;
+                $resume->languages()->create($data);
             });
 
             return back()->with("success", "Success");
