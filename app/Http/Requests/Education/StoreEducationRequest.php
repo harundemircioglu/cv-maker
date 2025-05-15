@@ -25,8 +25,8 @@ class StoreEducationRequest extends FormRequest
             'study_program' => ['required', 'string', 'max:255'],
             'place_of_education' => ['required', 'string', 'max:255'],
             'is_present' => ['required', 'integer', 'in:0,1'],
-            'start_date' => ['required', 'date', 'date_format:m/Y'],
-            'end_date' => ['required_if:is_present,1', 'date', 'date_format:m/Y'],
+            'start_date' => ['required', 'date', 'date_format:Y-m'],
+            'end_date' => ['required_if:is_present,0', 'date', 'date_format:Y-m'],
             'projects' => ['required', 'array'],
             'projects.*' => ['required', 'string'],
         ];

@@ -16,13 +16,17 @@ class EducationController extends Controller
     {
         try {
             DB::transaction(function () use ($request, $resumeId) {
-                $resume = Resume::findOr($resumeId);
-                $resume->educations()->create($request->validated());
+                $resume = Resume::findOrFail($resumeId);
+                $data = $request->validated();
+                $data['start_date'] = Carbon::parse($data['start_date'])->format('Y-m-d');
+                $data['end_date'] = Carbon::parse($data['end_date'])->format('Y-m-d');
+                $data['projects'] = json_encode($data['projects']);
+                $resume->educations()->create($data);
             });
 
             return back()->with("success", "Success");
         } catch (\Throwable $th) {
-            //throw $th;
+            dd($th);
         }
     }
 
@@ -31,7 +35,11 @@ class EducationController extends Controller
         try {
             DB::transaction(function () use ($request, $id) {
                 $education = Education::findOrFail($id);
-                $education->update($request->validated());
+                $data = $request->validated();
+                $data['start_date'] = Carbon::parse($data['start_date'])->format('Y-m-d');
+                $data['end_date'] = Carbon::parse($data['end_date'])->format('Y-m-d');
+                $data['projects'] = json_encode($data['projects']);
+                $education->update($data);
             });
 
             return back()->with("success", "Success");
