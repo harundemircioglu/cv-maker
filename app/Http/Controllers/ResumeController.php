@@ -6,15 +6,38 @@ use App\Http\Requests\Resume\StoreResumeRequest;
 use App\Http\Requests\Resume\UpdateResumeRequest;
 use App\Models\Resume;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class ResumeController extends Controller
 {
+    public function find($id)
+    {
+        try {
+            $resume = Resume::with([
+                'user',
+                'certificates',
+                'educations',
+                'languages',
+                'projects',
+                'references',
+                'workExperiences',
+            ])->findOrFail($id);
+
+            return view('resume.index', compact('resume'));
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
+    }
+
     public function store(StoreResumeRequest $request)
     {
         try {
             DB::transaction(function () use ($request) {
-                Resume::create($request->validated());
+                $user = Auth::user();
+                $data = $request->validated();
+                $data['profile_image'] = uploadFile($data['profile_image']);
+                $user->resumes()->create($data);
             });
 
             return back()->with("success", "Success");
@@ -27,7 +50,9 @@ class ResumeController extends Controller
     {
         try {
             DB::transaction(function () use ($request, $id) {
-                Resume::findOrFail($id)->update($request->validated());
+                $data = $request->validated();
+                $data['profile_image'] = uploadFile($data['profile_image']);
+                Resume::findOrFail($id)->update($data);
             });
 
             return back()->with("success", "Success");

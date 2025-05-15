@@ -23,6 +23,7 @@ Route::prefix('auth')->name('auth.')->group(function () {
 });
 
 Route::prefix('resume')->name('resume.')->middleware(['auth'])->group(function () {
+    Route::get('/detail/{id}', [ResumeController::class, 'find'])->name('detail');
     Route::post('/store', [ResumeController::class, 'store'])->middleware('check.usage:cv_downloads')->name('store');
     Route::post('/update/{id}', [ResumeController::class, 'update'])->name('update');
     Route::post('/destroy/{id}', [ResumeController::class, 'destroy'])->name('destroy');
