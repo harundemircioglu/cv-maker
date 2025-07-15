@@ -111,7 +111,7 @@
                     <form class="flex flex-col gap-y-2 p-5"
                         action="{{ route('resume.certificate.store', ['resumeId' => $resume->id]) }}" method="POST">
                         @csrf
-                        <x-input-base placeholder="" name="name" />
+                        <x-input-base placeholder="Name" name="name" />
                         <input type="hidden" name="is_present" value="0">
                         <x-checkbox-base id="is_present_certificate" name="is_present" label="Present" value="1" />
                         <x-input-base type="month" name="start_date" />

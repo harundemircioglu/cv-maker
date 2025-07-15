@@ -23,7 +23,7 @@
             <x-input-base placeholder="Phone" name="phone" />
             <x-input-base placeholder="City" name="city" />
             <x-input-base placeholder="District" name="description" />
-            <x-button-base color="green" text="Store" id="btnStoreResume"/>
+            <x-button-base type="submit" color="green" text="Store" id="btnStoreResume"/>
         </form>
 
         @foreach ($resumes as $resume)
