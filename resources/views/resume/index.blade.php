@@ -18,15 +18,15 @@
                     <form class="flex flex-col gap-y-2 p-5"
                         action="{{ route('resume.education.store', ['resumeId' => $resume->id]) }}" method="POST">
                         @csrf
-                        <input type="text" name="study_program">
-                        <input type="text" name="place_of_education">
+                        <x-input-base placeholder="Study Program" name="study_program"/>
+                        <x-input-base placeholder="Place Of Education" name="place_of_education"/>
                         <div class="flex">
                             <input type="hidden" name="is_present" value="0">
                             <input type="checkbox" name="is_present" value="1">Present
                         </div>
-                        <input type="month" name="start_date">
-                        <input type="month" name="end_date">
-                        <input type="text" name="projects[]">
+                        <x-input-base type="month" name="start_date"/>
+                        <x-input-base type="month" name="end_date"/>
+                        <x-input-base placeholder="Projects" name="projects[]"/>
                         <button>Store</button>
                     </form>
                 </div>
@@ -44,16 +44,16 @@
                     <form class="flex flex-col gap-y-2 p-5"
                         action="{{ route('resume.workExperience.store', ['resumeId' => $resume->id]) }}" method="POST">
                         @csrf
-                        <input type="text" name="title">
-                        <input type="text" name="workplace">
+                        <x-input-base placeholder="Title" name="title"/>
+                        <x-input-base placeholder="Workplace" name="workplace"/>
                         <div class="flex">
                             <input type="hidden" name="is_present" value="0">
                             <input type="checkbox" name="is_present" value="1">Present
                         </div>
-                        <input type="month" name="start_date">
-                        <input type="month" name="end_date">
-                        <input type="text" name="city">
-                        <input type="text" name="tasks[]">
+                        <x-input-base type="month" name="start_date"/>
+                        <x-input-base type="month" name="end_date"/>
+                        <x-input-base placeholder="City" name="city"/>
+                        <x-input-base placeholder="Tasks" name="tasks[]"/>
                         <button>Store</button>
                     </form>
                 </div>
@@ -73,14 +73,14 @@
                     <form class="flex flex-col gap-y-2 p-5"
                         action="{{ route('resume.project.store', ['resumeId' => $resume->id]) }}" method="POST">
                         @csrf
-                        <input type="text" name="name">
+                        <x-input-base placeholder="Name" name="name"/>
                         <div class="flex">
                             <input type="hidden" name="is_present" value="0">
                             <input type="checkbox" name="is_present" value="1">Present
                         </div>
-                        <input type="month" name="start_date">
-                        <input type="month" name="end_date">
-                        <input type="text" name="description">
+                        <x-input-base type="month" name="start_date"/>
+                        <x-input-base type="month" name="end_date"/>
+                        <x-input-base placeholder="Description" name="description"/>
                         <button>Store</button>
                     </form>
                 </div>
@@ -98,8 +98,8 @@
                     <form class="flex flex-col gap-y-2 p-5"
                         action="{{ route('resume.language.store', ['resumeId' => $resume->id]) }}" method="POST">
                         @csrf
-                        <input type="text" name="language">
-                        <input type="text" name="level">
+                        <x-input-base placeholder="Language" name="language"/>
+                        <x-input-base placeholder="Level" name="level"/>
                         <button>Store</button>
                     </form>
                 </div>
@@ -117,14 +117,14 @@
                     <form class="flex flex-col gap-y-2 p-5"
                         action="{{ route('resume.certificate.store', ['resumeId' => $resume->id]) }}" method="POST">
                         @csrf
-                        <input type="text" name="name">
+                        <x-input-base placeholder="" name="name"/>
                         <div class="flex">
                             <input type="hidden" name="is_present" value="0">
                             <input type="checkbox" name="is_present" value="1">Present
                         </div>
-                        <input type="month" name="start_date">
-                        <input type="month" name="end_date">
-                        <input type="text" name="description">
+                        <x-input-base type="month" name="start_date"/>
+                        <x-input-base type="month" name="end_date"/>
+                        <x-input-base placeholder="Description" name="description"/>
                         <button>Store</button>
                     </form>
                 </div>

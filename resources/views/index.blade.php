@@ -15,14 +15,14 @@
 
         <form id="formStoreResume" action="{{ route('resume.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
-            <input type="text" name="title">
-            <input type="text" name="name">
-            <input type="text" name="surname">
-            <input type="file" name="profile_image">
-            <input type="text" name="email">
-            <input type="text" name="phone">
-            <input type="text" name="city">
-            <input type="text" name="description">
+            <x-input-base placeholder="Title" name="title" />
+            <x-input-base placeholder="Name" name="name" />
+            <x-input-base placeholder="Surname" name="surname" />
+            <x-input-base type="file" name="profile_image" />
+            <x-input-base type="email" placeholder="Email" name="email" />
+            <x-input-base placeholder="Phone" name="phone" />
+            <x-input-base placeholder="City" name="city" />
+            <x-input-base placeholder="District" name="description" />
             <button id="btnStoreResume">Store</button>
         </form>
 

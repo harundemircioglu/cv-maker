@@ -13,17 +13,17 @@
 
     <form id="formLogin" action="{{ route('auth.login') }}" method="POST">
         @csrf
-        <input class="@error('email') is-invalid @enderror" type="email" name="email">
-        <input class="@error('password') is-invalid @enderror" type="password" name="password">
+        <x-input-base placeholder="Email" type="email" name="email" />
+        <x-input-base placeholder="Password" type="password" name="password" />
         <button id="btnLogin">Login</button>
     </form>
 
     <form id="formRegister" action="{{ route('auth.register') }}" method="POST">
         @csrf
-        <input class="@error('name') is-invalid @enderror" type="text" name="name">
-        <input class="@error('email') is-invalid @enderror" type="email" name="email">
-        <input class="@error('password') is-invalid @enderror" type="password" name="password">
-        <input class="@error('password_confirmation') is-invalid @enderror" type="password" name="password_confirmation">
+        <x-input-base placeholder="Name" type="text" name="name" />
+        <x-input-base placeholder="Email" type="email" name="email" />
+        <x-input-base placeholder="Password" type="password" name="password" />
+        <x-input-base placeholder="Password Confirmation" type="password" name="password_confirmation" />
         <select name="plan_id">
             <option selected disabled>Plan</option>
             @foreach ($plans as $plan)
