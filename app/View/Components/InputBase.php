@@ -11,6 +11,7 @@ class InputBase extends Component
     /**
      * Create a new component instance.
      */
+
     protected $type;
     protected $id;
     protected $name;

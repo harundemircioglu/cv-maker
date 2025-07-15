@@ -10,7 +10,7 @@
 
         <form id="formLogout" action="{{ route('auth.logout') }}" method="POST">
             @csrf
-            <button id="btnLogout">Logout</button>
+            <x-button-base text="Logout" color="red" id="btnLogout"/>
         </form>
 
         <form id="formStoreResume" action="{{ route('resume.store') }}" method="POST" enctype="multipart/form-data">
@@ -23,7 +23,7 @@
             <x-input-base placeholder="Phone" name="phone" />
             <x-input-base placeholder="City" name="city" />
             <x-input-base placeholder="District" name="description" />
-            <button id="btnStoreResume">Store</button>
+            <x-button-base color="green" text="Store" id="btnStoreResume"/>
         </form>
 
         @foreach ($resumes as $resume)
