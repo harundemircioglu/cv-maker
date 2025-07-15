@@ -20,14 +20,12 @@
                         @csrf
                         <x-input-base placeholder="Study Program" name="study_program" />
                         <x-input-base placeholder="Place Of Education" name="place_of_education" />
-                        <div class="flex">
-                            <input type="hidden" name="is_present" value="0">
-                            <input type="checkbox" name="is_present" value="1">Present
-                        </div>
+                        <input type="hidden" name="is_present" value="0">
+                        <x-checkbox-base id="is_present" label="Present" name="is_present" value="1" />
                         <x-input-base type="month" name="start_date" />
                         <x-input-base type="month" name="end_date" />
                         <x-input-base placeholder="Projects" name="projects[]" />
-                        <x-button-base type="submit" text="Store" color="green"/>
+                        <x-button-base type="submit" text="Store" color="green" />
                     </form>
                 </div>
 
@@ -46,15 +44,13 @@
                         @csrf
                         <x-input-base placeholder="Title" name="title" />
                         <x-input-base placeholder="Workplace" name="workplace" />
-                        <div class="flex">
-                            <input type="hidden" name="is_present" value="0">
-                            <input type="checkbox" name="is_present" value="1">Present
-                        </div>
+                        <input type="hidden" name="is_present" value="0">
+                        <x-checkbox-base id="is_present_workExperience" name="is_present" label="Present" value="1" />
                         <x-input-base type="month" name="start_date" />
                         <x-input-base type="month" name="end_date" />
                         <x-input-base placeholder="City" name="city" />
                         <x-input-base placeholder="Tasks" name="tasks[]" />
-                        <x-button-base type="submit" text="Store" color="green"/>
+                        <x-button-base type="submit" text="Store" color="green" />
                     </form>
                 </div>
 
@@ -74,14 +70,12 @@
                         action="{{ route('resume.project.store', ['resumeId' => $resume->id]) }}" method="POST">
                         @csrf
                         <x-input-base placeholder="Name" name="name" />
-                        <div class="flex">
-                            <input type="hidden" name="is_present" value="0">
-                            <input type="checkbox" name="is_present" value="1">Present
-                        </div>
+                        <input type="hidden" name="is_present" value="0">
+                        <x-checkbox-base id="is_present_project" name="is_present" label="Present" value="1" />
                         <x-input-base type="month" name="start_date" />
                         <x-input-base type="month" name="end_date" />
                         <x-input-base placeholder="Description" name="description" />
-                        <x-button-base type="submit" text="Store" color="green"/>
+                        <x-button-base type="submit" text="Store" color="green" />
                     </form>
                 </div>
 
@@ -100,7 +94,7 @@
                         @csrf
                         <x-input-base placeholder="Language" name="language" />
                         <x-input-base placeholder="Level" name="level" />
-                        <x-button-base type="submit" text="Store" color="green"/>
+                        <x-button-base type="submit" text="Store" color="green" />
                     </form>
                 </div>
 
@@ -118,14 +112,12 @@
                         action="{{ route('resume.certificate.store', ['resumeId' => $resume->id]) }}" method="POST">
                         @csrf
                         <x-input-base placeholder="" name="name" />
-                        <div class="flex">
-                            <input type="hidden" name="is_present" value="0">
-                            <input type="checkbox" name="is_present" value="1">Present
-                        </div>
+                        <input type="hidden" name="is_present" value="0">
+                        <x-checkbox-base id="is_present_certificate" name="is_present" label="Present" value="1" />
                         <x-input-base type="month" name="start_date" />
                         <x-input-base type="month" name="end_date" />
                         <x-input-base placeholder="Description" name="description" />
-                        <x-button-base type="submit" text="Store" color="green"/>
+                        <x-button-base type="submit" text="Store" color="green" />
                     </form>
                 </div>
 
