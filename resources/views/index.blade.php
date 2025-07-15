@@ -10,7 +10,7 @@
 
         <form id="formLogout" action="{{ route('auth.logout') }}" method="POST">
             @csrf
-            <x-button-base text="Logout" color="red" id="btnLogout"/>
+            <x-button-base text="Logout" type="submit" color="red" id="btnLogout"/>
         </form>
 
         <form id="formStoreResume" action="{{ route('resume.store') }}" method="POST" enctype="multipart/form-data">
