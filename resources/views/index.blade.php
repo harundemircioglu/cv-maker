@@ -10,21 +10,45 @@
 
         <form id="formLogout" action="{{ route('auth.logout') }}" method="POST">
             @csrf
-            <x-button-base text="Logout" type="submit" color="red" id="btnLogout"/>
+            <x-button-base text="Logout" type="submit" color="red" />
         </form>
 
-        <form id="formStoreResume" action="{{ route('resume.store') }}" method="POST" enctype="multipart/form-data">
-            @csrf
-            <x-input-base placeholder="Title" name="title" />
-            <x-input-base placeholder="Name" name="name" />
-            <x-input-base placeholder="Surname" name="surname" />
-            <x-input-base type="file" name="profile_image" />
-            <x-input-base type="email" placeholder="Email" name="email" />
-            <x-input-base placeholder="Phone" name="phone" />
-            <x-input-base placeholder="City" name="city" />
-            <x-input-base placeholder="District" name="description" />
-            <x-button-base type="submit" color="green" text="Store" id="btnStoreResume"/>
-        </form>
+        <x-modal-base id="store-resume-modal" dataModalTarget="store-resume-modal" dataModalToggle="store-resume-modal"
+            toggleText="Store Resume" modalHeader="Store Resume" formAction="{{ route('resume.store') }}" formMethod="POST">
+            <x-slot name="modalBody">
+                <div class="col-span-2">
+                    <x-input-base placeholder="Title" name="title" />
+                </div>
+
+                <div class="col-span-2 sm:col-span-1">
+                    <x-input-base placeholder="Name" name="name" />
+                </div>
+
+                <div class="col-span-2 sm:col-span-1">
+                    <x-input-base placeholder="Surname" name="surname" />
+                </div>
+
+                <div class="col-span-2">
+                    <x-input-base type="file" name="profile_image" />
+                </div>
+
+                <div class="col-span-2 sm:col-span-1">
+                    <x-input-base type="email" placeholder="Email" name="email" />
+                </div>
+
+                <div class="col-span-2 sm:col-span-1">
+                    <x-input-base placeholder="Phone" name="phone" />
+                </div>
+
+                <div class="col-span-2 sm:col-span-1">
+                    <x-input-base placeholder="City" name="city" />
+                </div>
+
+                <div class="col-span-2 sm:col-span-1">
+                    <x-input-base placeholder="District" name="description" />
+                </div>
+            </x-slot>
+        </x-modal-base>
 
         @foreach ($resumes as $resume)
             <a href="{{ route('resume.detail', ['id' => $resume->id]) }}">{{ $resume->title }}</a>
@@ -33,15 +57,5 @@
 @endsection
 
 @push('scripts')
-    <script>
-        $('#btnLogout').click(function() {
-            $(this).prop('disabled', true);
-            $('#formLogout').submit();
-        });
-
-        $('#btnStoreResume').click(function() {
-            $(this).prop('disabled', true);
-            $('#formStoreResume').submit();
-        });
-    </script>
+    <script></script>
 @endpush
