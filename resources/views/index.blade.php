@@ -45,7 +45,7 @@
                 </div>
 
                 <div class="col-span-2 sm:col-span-1">
-                    <x-input-base placeholder="District" name="description" />
+                    <x-input-base placeholder="Description" name="description" />
                 </div>
             </x-slot>
         </x-modal-base>
