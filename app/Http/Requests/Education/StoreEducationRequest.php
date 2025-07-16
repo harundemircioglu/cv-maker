@@ -27,8 +27,8 @@ class StoreEducationRequest extends FormRequest
             'is_present' => ['required', 'integer', 'in:0,1'],
             'start_date' => ['required', 'date', 'date_format:Y-m'],
             'end_date' => ['required_if:is_present,0', 'date', 'date_format:Y-m'],
-            'projects' => ['required', 'array'],
-            'projects.*' => ['required', 'string'],
+            'projects' => ['nullable', 'array'],
+            'projects.*' => ['nullable', 'string'],
         ];
     }
 

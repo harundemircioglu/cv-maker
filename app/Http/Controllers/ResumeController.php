@@ -16,12 +16,20 @@ class ResumeController extends Controller
         try {
             $resume = Resume::with([
                 'user',
-                'certificates',
-                'educations',
+                'certificates' => function ($query) {
+                    $query->orderBy('start_date');
+                },
+                'educations' => function ($query) {
+                    $query->orderBy('start_date');
+                },
                 'languages',
-                'projects',
+                'projects' => function ($query) {
+                    $query->orderByDesc('start_date');
+                },
                 'references',
-                'workExperiences',
+                'workExperiences' => function ($query) {
+                    $query->orderBy('start_date');
+                },
             ])->findOrFail($id);
 
             return view('resume.index', compact('resume'));

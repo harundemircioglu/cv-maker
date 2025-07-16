@@ -26,7 +26,7 @@ class UpdateProjectRequest extends FormRequest
             'is_present' => ['required', 'integer', 'in:0,1'],
             'start_date' => ['required', 'date', 'date_format:Y-m'],
             'end_date' => ['required_if:is_present,0', 'date', 'date_format:Y-m'],
-            'description' => ['required', 'string', 'max:255'],
+            'description' => ['required', 'string'],
         ];
     }
 

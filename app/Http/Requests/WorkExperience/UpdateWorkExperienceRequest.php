@@ -27,9 +27,9 @@ class UpdateWorkExperienceRequest extends FormRequest
             'is_present' => ['required', 'integer', 'in:0,1'],
             'start_date' => ['required', 'date', 'date_format:Y-m'],
             'end_date' => ['required_if:is_present,0', 'date', 'date_format:Y-m'],
-            'city' => ['required', 'string', 'max:255'],
-            'tasks' => ['required', 'array'],
-            'tasks.*' => ['required', 'string', 'max:255'],
+            'city' => ['nullable', 'string', 'max:255'],
+            'tasks' => ['nullable', 'array'],
+            'tasks.*' => ['nullable', 'string', 'max:255'],
         ];
     }
 

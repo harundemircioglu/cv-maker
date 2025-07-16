@@ -8,14 +8,15 @@
 
     <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
     @stack('styles')
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="bg-gray-100 text-gray-900 min-h-screen">
-
-    <div class="container mx-auto py-8">
+<body>
+    <div class="p-5 print:p-0">
         @yield('content')
     </div>
 
