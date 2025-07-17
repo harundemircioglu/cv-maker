@@ -31,9 +31,28 @@
 
 @if (request()->edit && request()->edit == 1)
     <div class="my-5">
-        <x-modal-base id="edit-personel-information-modal" dataModalTarget="edit-personel-information-modal"
-            dataModalToggle="edit-personel-information-modal" toggleText="Düzenle"
-            modalHeader="Düzenle">
+        <x-modal-base id="edit-personel-information-modal" toggleText="Düzenle" modalHeader="Düzenle">
+            <x-slot name="modalBody">
+                <x-input-base name="title" value="{{ $resume->title }}" />
+
+                <x-input-base name="name" value="{{ $resume->name }}" />
+
+                <x-input-base name="surname" value="{{ $resume->surname }}" />
+
+                <x-input-base type="file" name="profile_image" value="{{ $resume->profile_image }}" />
+
+                <x-input-base type="email" name="email" value="{{ $resume->email }}" />
+
+                <x-input-base name="phone" value="{{ $resume->phone }}" />
+
+                <x-input-base name="city" value="{{ $resume->city }}" />
+
+                <x-input-base name="description" value="{{ $resume->description }}" />
+
+                <x-slot name="formBtn">
+                    <x-button-base text="Kaydet" />
+                </x-slot>
+            </x-slot>
         </x-modal-base>
     </div>
 @endif

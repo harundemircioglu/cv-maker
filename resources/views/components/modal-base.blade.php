@@ -1,6 +1,6 @@
 <div>
     <!-- Modal toggle -->
-    <button data-modal-target="{{ $dataModalTarget }}" data-modal-toggle="{{ $dataModalToggle }}"
+    <button data-modal-target="{{ $id }}" data-modal-toggle="{{ $id }}"
         class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
         type="button">
         {{ $toggleText }}
@@ -19,7 +19,7 @@
                     </h3>
                     <button type="button"
                         class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
-                        data-modal-toggle="{{ $dataModalToggle }}">
+                        data-modal-toggle="{{ $id }}">
                         <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                             viewBox="0 0 14 14">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -35,7 +35,7 @@
                     <div class="grid gap-4 mb-4 grid-cols-2">
                         {{ $modalBody }}
                     </div>
-                    <x-button-base type="submit" text="Store" />
+                    {{ $formBtn }}
                 </form>
             </div>
         </div>

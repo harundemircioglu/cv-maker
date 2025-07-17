@@ -20,7 +20,7 @@ class ButtonBase extends Component
     protected $text;
     protected $svg;
 
-    public function __construct($id = null, $value = null, $name = null, $type = "button", $color = "blue", $text = "Button", $svg = null)
+    public function __construct($id = null, $value = null, $name = null, $type = "submit", $color = "blue", $text = "Button", $svg = null)
     {
         $this->id = $id;
         $this->value = $value;

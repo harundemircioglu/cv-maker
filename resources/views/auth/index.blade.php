@@ -5,7 +5,7 @@
         @csrf
         <x-input-base placeholder="Email" type="email" name="email" />
         <x-input-base placeholder="Password" type="password" name="password" />
-        <x-button-base type="submit" text="Login" />
+        <x-button-base text="Login" />
     </form>
 
     <form id="formRegister" action="{{ route('auth.register') }}" method="POST">
@@ -29,7 +29,7 @@
                 <option value="2">Yearly</option>
             </x-slot>
         </x-select-base>
-        <x-button-base type="submit" text="Register" />
+        <x-button-base text="Register" />
     </form>
 @endsection
 

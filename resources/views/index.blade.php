@@ -10,11 +10,11 @@
 
         <form id="formLogout" action="{{ route('auth.logout') }}" method="POST">
             @csrf
-            <x-button-base text="Logout" type="submit" color="red" />
+            <x-button-base text="Logout" color="red" />
         </form>
 
-        <x-modal-base id="store-resume-modal" dataModalTarget="store-resume-modal" dataModalToggle="store-resume-modal"
-            toggleText="Store Resume" modalHeader="Store Resume" formAction="{{ route('resume.store') }}" formMethod="POST">
+        <x-modal-base id="store-resume-modal" toggleText="Store Resume" modalHeader="Store Resume"
+            formAction="{{ route('resume.store') }}" formMethod="POST">
             <x-slot name="modalBody">
                 <div class="col-span-2">
                     <x-input-base placeholder="Title" name="title" />
@@ -47,6 +47,9 @@
                 <div class="col-span-2 sm:col-span-1">
                     <x-input-base placeholder="Description" name="description" />
                 </div>
+            </x-slot>
+            <x-slot name="formBtn">
+                <x-button-base text="Store" />
             </x-slot>
         </x-modal-base>
 

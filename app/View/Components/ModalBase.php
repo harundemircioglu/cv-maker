@@ -12,25 +12,23 @@ class ModalBase extends Component
      * Create a new component instance.
      */
 
-    protected $toggleText;
     protected $id;
-    protected $dataModalTarget;
-    protected $dataModalToggle;
+    protected $toggleText;
     protected $modalHeader;
     protected $modalBody;
     protected $formAction;
     protected $formMethod;
+    protected $formBtn;
 
-    public function __construct($toggleText, $id, $dataModalTarget, $dataModalToggle, $modalHeader = null, $formAction = null, $formMethod = null, $modalBody = null)
+    public function __construct($id, $toggleText, $modalHeader = null, $formAction = null, $formMethod = "POST", $modalBody = null, $formBtn = null)
     {
-        $this->toggleText = $toggleText;
         $this->id = $id;
-        $this->dataModalTarget = $dataModalTarget;
-        $this->dataModalToggle = $dataModalToggle;
+        $this->toggleText = $toggleText;
         $this->modalHeader = $modalHeader;
         $this->modalBody = $modalBody;
         $this->formAction = $formAction;
         $this->formMethod = $formMethod;
+        $this->formBtn = $formBtn;
     }
 
     /**
@@ -39,14 +37,13 @@ class ModalBase extends Component
     public function render(): View|Closure|string
     {
         return view('components.modal-base', [
-            'toggleText' => $this->toggleText,
             'id' => $this->id,
-            'dataModalTarget' => $this->dataModalTarget,
-            'dataModalToggle' => $this->dataModalToggle,
+            'toggleText' => $this->toggleText,
             'modalHeader' => $this->modalHeader,
             'formAction' => $this->formAction,
             'formMethod' => $this->formMethod,
             'modalBody' => $this->modalBody,
+            'formBtn' => $this->formBtn,
         ]);
     }
 }
