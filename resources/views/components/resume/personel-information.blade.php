@@ -28,3 +28,12 @@
         <i class="fa-solid fa-location-dot"></i>
     </div>
 </div>
+
+@if (request()->edit && request()->edit == 1)
+    <div class="my-5">
+        <x-modal-base id="edit-personel-information-modal" dataModalTarget="edit-personel-information-modal"
+            dataModalToggle="edit-personel-information-modal" toggleText="Düzenle"
+            modalHeader="Düzenle">
+        </x-modal-base>
+    </div>
+@endif
