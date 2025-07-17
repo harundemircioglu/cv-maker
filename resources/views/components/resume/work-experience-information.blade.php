@@ -5,20 +5,23 @@
             <x-modal-base id="store-work-experience-information-modal" toggleText="Ekle" modalHeader="Ekle"
                 formAction="{{ route('resume.workExperience.store', ['resumeId' => $resume->id]) }}">
                 <x-slot name="modalBody">
-                    <x-input-base name="title" />
+                    <x-input-base id="store-work-experience-information-title" label="Meslek" name="title" />
 
-                    <x-input-base name="workplace" />
+                    <x-input-base id="store-work-experience-information-workplace" label="Şirket" name="workplace" />
 
                     <input type="hidden" name="is_present" value="0">
-                    <x-checkbox-base id="is_present" name="is_present" value="1" label="Is Present" />
+                    <x-checkbox-base id="is_present" name="is_present" value="1" label="Devam ediyor" />
 
-                    <x-input-base type="month" name="start_date" />
+                    <x-input-base id="store-work-experience-information-start_date" label="Başlangıç Tarihi"
+                        type="month" name="start_date" />
 
-                    <x-input-base type="month" name="end_date" />
+                    <x-input-base id="store-work-experience-information-end_date" label="Bitiş Tarihi" type="month"
+                        name="end_date" />
 
-                    <x-input-base name="city" />
+                    <x-input-base id="store-work-experience-information-city" label="İl" name="city" />
 
-                    <x-input-base name="tasks[]" placeholder="Tasks" />
+                    <x-input-base id="store-work-experience-information-Tasks" label="Görevler" name="tasks[]"
+                        placeholder="Tasks" />
 
                     <x-slot name="formBtn">
                         <x-button-base text="Kaydet" />
@@ -63,23 +66,30 @@
                     modalHeader="Düzenle"
                     formAction="{{ route('resume.workExperience.update', ['id' => $workExperience->id]) }}">
                     <x-slot name="modalBody">
-                        <x-input-base name="title" value="{{ $workExperience->title }}" />
+                        <x-input-base id="edit-work-experience-information-title-{{ $workExperience->id }}"
+                            label="Meslek" name="title" value="{{ $workExperience->title }}" />
 
-                        <x-input-base name="workplace" value="{{ $workExperience->workplace }}" />
+                        <x-input-base id="edit-work-experience-information-workplace-{{ $workExperience->id }}"
+                            label="Şirket" name="workplace" value="{{ $workExperience->workplace }}" />
 
                         <input type="hidden" name="is_present" value="0">
-                        <x-checkbox-base id="is_present" name="is_present" value="1" label="Is Present"
+                        <x-checkbox-base id="edit-work-experience-information-is_present-{{ $workExperience->id }}"
+                            name="is_present" value="1" label="Devam ediyor"
                             value="{{ $workExperience->is_present }}" />
 
-                        <x-input-base type="month" name="start_date"
+                        <x-input-base id="edit-work-experience-information-start_date-{{ $workExperience->id }}"
+                            label="Başlangıç Tarihi" type="month" name="start_date"
                             value="{{ \Carbon\Carbon::parse($workExperience->start_date)->format('Y-m') }}" />
 
-                        <x-input-base type="month" name="end_date"
+                        <x-input-base id="edit-work-experience-information-end_date-{{ $workExperience->id }}"
+                            label="Bitiş Tarihi" type="month" name="end_date"
                             value="{{ \Carbon\Carbon::parse($workExperience->end_date)->format('Y-m') }}" />
 
-                        <x-input-base name="city" value="{{ $workExperience->city }}" />
+                        <x-input-base id="edit-work-experience-information-city-{{ $workExperience->id }}"
+                            label="İl" name="city" value="{{ $workExperience->city }}" />
 
-                        <x-input-base name="tasks[]" placeholder="Tasks" value="{{ $workExperience->tasks }}" />
+                        <x-input-base id="edit-work-experience-information-tasks-{{ $workExperience->id }}"
+                            label="Görevler" name="tasks[]" placeholder="Tasks" value="{{ $workExperience->tasks }}" />
 
                         <x-slot name="formBtn">
                             <x-button-base text="Kaydet" />

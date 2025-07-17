@@ -5,8 +5,10 @@
             <x-modal-base id="store-language-information-modal" toggleText="Ekle" modalHeader="Ekle"
                 formAction="{{ route('resume.language.store', ['resumeId' => $resume->id]) }}">
                 <x-slot name="modalBody">
-                    <x-input-base name="language" />
-                    <x-input-base name="level" />
+                    <x-input-base id="store-language-information-language" label="Dil" name="language" />
+
+                    <x-input-base id="store-language-information-level" label="Seviye" name="level" />
+
                     <x-slot name="formBtn">
                         <x-button-base text="Kaydet" />
                     </x-slot>
@@ -27,8 +29,12 @@
                 <x-modal-base id="edit-language-information-modal-{{ $language->id }}" toggleText="Düzenle"
                     modalHeader="Düzenle" formAction="{{ route('resume.language.update', ['id' => $language->id]) }}">
                     <x-slot name="modalBody">
-                        <x-input-base name="language" value="{{ $language->language }}" />
-                        <x-input-base name="level" value="{{ $language->level }}" />
+                        <x-input-base id="edit-language-information-language-{{ $language->id }}" label="Dil"
+                            name="language" value="{{ $language->language }}" />
+
+                        <x-input-base id="edit-language-information-level-{{ $language->id }}" label="Seviye"
+                            name="level" value="{{ $language->level }}" />
+
                         <x-slot name="formBtn">
                             <x-button-base text="Kaydet" />
                         </x-slot>

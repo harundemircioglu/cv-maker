@@ -5,16 +5,19 @@
             <x-modal-base id="store-project-information-modal" toggleText="Ekle" modalHeader="Ekle"
                 formAction="{{ route('resume.project.store', ['resumeId' => $resume->id]) }}">
                 <x-slot name="modalBody">
-                    <x-input-base name="name" />
+                    <x-input-base id="store-project-information-name" label="Proje Adı" name="name" />
 
                     <input type="hidden" name="is_present" value="0">
-                    <x-checkbox-base id="is_present" name="is_present" value="1" label="Is Present" />
+                    <x-checkbox-base id="store-project-information-is_present" name="is_present" value="1"
+                        label="Devam ediyor" />
 
-                    <x-input-base type="month" name="start_date" />
+                    <x-input-base id="store-project-information-start_date" label="Başlangıç Tarihi" type="month"
+                        name="start_date" />
 
-                    <x-input-base type="month" name="end_date" />
+                    <x-input-base id="store-project-information-end_date" label="Bitiş Tarihi" type="month"
+                        name="end_date" />
 
-                    <x-input-base name="description" />
+                    <x-input-base id="store-project-information-description" label="Açıklama" name="description" />
 
                     <x-slot name="formBtn">
                         <x-button-base text="Kaydet" />
@@ -44,19 +47,23 @@
                 <x-modal-base id="edit-project-information-modal-{{ $project->id }}" toggleText="Düzenle"
                     modalHeader="Düzenle" formAction="{{ route('resume.project.update', ['id' => $project->id]) }}">
                     <x-slot name="modalBody">
-                        <x-input-base name="name" value="{{ $project->name }}" />
+                        <x-input-base id="edit-project-information-name-{{ $project->id }}" label="Proje Adı"
+                            name="name" value="{{ $project->name }}" />
 
                         <input type="hidden" name="is_present" value="0">
-                        <x-checkbox-base id="is_present" name="is_present" value="1" label="Is Present"
-                            value="{{ $project->is_present }}" />
+                        <x-checkbox-base id="edit-project-information-is_present-{{ $project->id }}" name="is_present"
+                            value="1" label="Devam ediyor" value="{{ $project->is_present }}" />
 
-                        <x-input-base type="month" name="start_date"
+                        <x-input-base id="edit-project-information-start_date-{{ $project->id }}"
+                            label="Başlangıç Tarihi" type="month" name="start_date"
                             value="{{ \Carbon\Carbon::parse($project->start_date)->format('Y-m') }}" />
 
-                        <x-input-base type="month" name="end_date"
+                        <x-input-base id="edit-project-information-end_date-{{ $project->id }}" label="Bitiş Tarihi"
+                            type="month" name="end_date"
                             value="{{ \Carbon\Carbon::parse($project->end_date)->format('Y-m') }}" />
 
-                        <x-input-base name="description" value="{{ $project->description }}" />
+                        <x-input-base id="edit-project-information-description-{{ $project->id }}" label="Açıklama"
+                            name="description" value="{{ $project->description }}" />
 
                         <x-slot name="formBtn">
                             <x-button-base text="Kaydet" />

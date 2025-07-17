@@ -10,46 +10,46 @@
 
         <form id="formLogout" action="{{ route('auth.logout') }}" method="POST">
             @csrf
-            <x-button-base text="Logout" color="red" />
+            <x-button-base text="Çıkış Yap" color="red" />
         </form>
 
-        <x-modal-base id="store-resume-modal" toggleText="Store Resume" modalHeader="Store Resume"
+        <x-modal-base id="store-resume-modal" toggleText="Özgeçmiş Oluştur" modalHeader="Özgeçmiş Oluştur"
             formAction="{{ route('resume.store') }}" formMethod="POST">
             <x-slot name="modalBody">
                 <div class="col-span-2">
-                    <x-input-base placeholder="Title" name="title" />
+                    <x-input-base id="store-resume-title" label="Balık" name="title" />
                 </div>
 
                 <div class="col-span-2 sm:col-span-1">
-                    <x-input-base placeholder="Name" name="name" />
+                    <x-input-base id="store-resume-name" label="Ad" name="name" />
                 </div>
 
                 <div class="col-span-2 sm:col-span-1">
-                    <x-input-base placeholder="Surname" name="surname" />
+                    <x-input-base id="store-resume-surname" label="Soyad" name="surname" />
                 </div>
 
                 <div class="col-span-2">
-                    <x-input-base type="file" name="profile_image" />
+                    <x-input-base id="store-resume-profile_image" label="Profil Resmi" type="file" name="profile_image" />
                 </div>
 
                 <div class="col-span-2 sm:col-span-1">
-                    <x-input-base type="email" placeholder="Email" name="email" />
+                    <x-input-base id="store-resume-email" label="Email" type="email" name="email" />
                 </div>
 
                 <div class="col-span-2 sm:col-span-1">
-                    <x-input-base placeholder="Phone" name="phone" />
+                    <x-input-base id="store-resume-phone" label="Telefon" name="phone" />
                 </div>
 
                 <div class="col-span-2 sm:col-span-1">
-                    <x-input-base placeholder="City" name="city" />
+                    <x-input-base id="store-resume-city" label="İl" name="city" />
                 </div>
 
                 <div class="col-span-2 sm:col-span-1">
-                    <x-input-base placeholder="Description" name="description" />
+                    <x-input-base id="store-resume-description" label="Açıklama" name="description" />
                 </div>
             </x-slot>
             <x-slot name="formBtn">
-                <x-button-base text="Store" />
+                <x-button-base text="Kaydet" />
             </x-slot>
         </x-modal-base>
 
