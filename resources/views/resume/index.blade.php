@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="flex flex-col">
+    {{-- <div class="flex flex-col">
         <div class="grid grid-cols-1 sm:grid-cols-3 border-b-secondary border-b-2 pb-5 mb-5">
             @include('components.resume.personel-information', ['resume' => $resume])
         </div>
@@ -21,5 +21,5 @@
                 @include('components.resume.language-information', ['resume' => $resume])
             </div>
         </div>
-    </div>
+    </div> --}}
 @endsection

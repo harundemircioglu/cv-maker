@@ -1,4 +1,4 @@
-<div class="flex flex-col mb-5">
+{{-- <div class="flex flex-col mb-5">
     <h1 class="font-bold text-lg">SERTİFİKALAR</h1>
     @if (request()->edit && request()->edit == 1)
         <div class="my-5">
@@ -75,4 +75,4 @@
             </div>
         @endif
     @endforeach
-</div>
+</div> --}}
