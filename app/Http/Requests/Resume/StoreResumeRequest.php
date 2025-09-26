@@ -25,11 +25,11 @@ class StoreResumeRequest extends FormRequest
             'title' => ['required', 'string', 'max:255'],
             'name' => ['required', 'string', 'max:255'],
             'surname' => ['required', 'string', 'max:255'],
-            'profile_image' => ['required', 'image', 'mimes:png,jpg'],
+            'profile_image' => ['nullable', 'image', 'mimes:png,jpg'],
             'email' => ['required', 'string', 'max:255'],
             'phone' => ['required', 'string', 'max:255'],
             'city' => ['required', 'string', 'max:255'],
-            'description' => ['required', 'string', 'max:255'],
+            'description' => ['nullable', 'string', 'max:255'],
         ];
     }
 

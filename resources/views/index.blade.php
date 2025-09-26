@@ -17,7 +17,7 @@
             formAction="{{ route('resume.store') }}" formMethod="POST">
             <x-slot name="modalBody">
                 <div class="col-span-2">
-                    <x-input-base id="store-resume-title" label="Balık" name="title" />
+                    <x-input-base id="store-resume-title" label="Başlık" name="title" />
                 </div>
 
                 <div class="col-span-2 sm:col-span-1">
