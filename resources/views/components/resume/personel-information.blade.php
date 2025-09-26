@@ -31,7 +31,8 @@
 
 @if (request()->edit && request()->edit == 1)
     <div class="my-5">
-        <x-modal-base id="edit-personel-information-modal" toggleText="Düzenle" modalHeader="Düzenle">
+        <x-modal-base id="edit-personel-information-modal" toggleText="Düzenle" modalHeader="Düzenle"
+            formAction="{{ route('resume.update', $resume->id) }}" formMethod="POST">
             <x-slot name="modalBody">
                 <x-input-base name="title" value="{{ $resume->title }}" />
 

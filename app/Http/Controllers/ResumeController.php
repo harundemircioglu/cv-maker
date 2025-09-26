@@ -44,7 +44,7 @@ class ResumeController extends Controller
             DB::transaction(function () use ($request) {
                 $user = Auth::user();
                 $data = $request->validated();
-                if ($data['profile_image']) {
+                if (isset($data['profile_image'])) {
                     $data['profile_image'] = uploadFile($data['profile_image']);
                 }
                 $user->resumes()->create($data);
@@ -61,7 +61,7 @@ class ResumeController extends Controller
         try {
             DB::transaction(function () use ($request, $id) {
                 $data = $request->validated();
-                if ($data['profile_image']) {
+                if (isset($data['profile_image'])) {
                     $data['profile_image'] = uploadFile($data['profile_image']);
                 }
                 Resume::findOrFail($id)->update($data);
