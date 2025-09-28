@@ -1,4 +1,4 @@
-{{-- <div class="flex flex-col items-start">
+<div class="flex flex-col items-start">
     <div class="border-l-secondary border-l-[50px] pl-5 text-secondary text-4xl mb-5">
         <h1>{{ $resume->name }}</h1>
         <h1>{{ $resume->surname }}</h1>
@@ -56,4 +56,4 @@
             </x-slot>
         </x-modal-base>
     </div>
-@endif --}}
+@endif

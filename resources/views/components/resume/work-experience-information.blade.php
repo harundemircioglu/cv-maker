@@ -1,4 +1,4 @@
-{{-- <div class="flex flex-col mb-5">
+<div class="flex flex-col mb-5">
     <h1 class="pl-5 ml-[50px] font-bold text-lg">İŞ DENEYİMİ</h1>
     @if (request()->edit && request()->edit == 1)
         <div class="my-5">
@@ -99,4 +99,4 @@
             </div>
         @endif
     @endforeach
-</div> --}}
+</div>
